@@ -1,15 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plus-jakarta), sans-serif;
+  --font-serif: var(--font-instrument-serif), serif;
+
+  --color-agro-lime: #C4E844;
+  --color-agro-limeHover: #b5d836;
+  --color-agro-dark: #14210d;
+  --color-agro-glass: rgba(255, 255, 255, 0.16);
+  --color-agro-glassBorder: rgba(255, 255, 255, 0.25);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +28,18 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Subtle text glow & backdrop filters for glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.hero-vignette {
+  background: linear-gradient(180deg, rgba(16, 28, 14, 0.25) 0%, rgba(12, 22, 10, 0.45) 55%, rgba(10, 18, 9, 0.75) 100%);
+}
+.hero-title-serif {
+  font-style: italic;
 }

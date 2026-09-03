@@ -2,68 +2,159 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-neutral-900 selection:bg-agro-lime selection:text-black">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 select-none"
+      >
+        <source src="/herobg-video.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Vignette / Contrast Overlay */}
+      <div className="absolute inset-0 hero-vignette z-[1] pointer-events-none"></div>
+
+      {/* MainHeader */}
+      <header className="relative z-20 w-full px-6 md:px-12 pt-7 pb-4 flex items-center justify-between max-w-7xl mx-auto">
+        {/* Brand Logo */}
+        <div className="flex items-center gap-2.5 cursor-pointer">
+          <div className="w-8 h-8 rounded-lg bg-agro-lime flex items-center justify-center shadow-md">
+            {/* Sprout / Leaf Graphic Icon */}
+            <svg className="w-5 h-5 text-agro-dark" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C7.03 2 3 6.03 3 11c0 3.98 2.58 7.35 6.19 8.52L9 22h6l-.19-2.48C18.42 18.35 21 14.98 21 11c0-4.97-4.03-9-9-9zm-1.5 13.5v-3h3v3h-3zm0-5v-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5V10.5h-3z" opacity="0.3"></path>
+              <path d="M20.25 3.75a13.5 13.5 0 0 0-9.75 3.99A13.5 13.5 0 0 0 .75 17.49a.75.75 0 0 0 .75.76h9a13.46 13.46 0 0 0 9.75-4.25 13.46 13.46 0 0 0 0-10.25zM10.5 16.74H2.3c.7-3.7 3.32-6.72 6.84-8.03.35 1.54.88 3.01 1.57 4.38-.14 1.22-.21 2.45-.21 3.65zm8.44-3.55a12.02 12.02 0 0 1-7.85 3.51c.07-1.12.16-2.25.31-3.37.58-.09 1.17-.15 1.77-.15 2.05 0 3.96.65 5.77 1.01z"></path>
+            </svg>
+          </div>
+          <span className="text-xl font-bold tracking-tight text-white drop-shadow-sm">Agrovia</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+        
+        {/* Center Pill Navigation */}
+        <nav className="hidden md:flex items-center p-1.5 rounded-full glass-nav shadow-lg">
+          <a className="px-5 py-1.5 rounded-full bg-white text-neutral-900 font-semibold text-sm transition-all shadow-sm" href="#home">Home</a>
+          <a className="px-5 py-1.5 rounded-full text-white/90 hover:text-white text-sm font-medium transition-colors" href="#about">About Us</a>
+          <a className="px-5 py-1.5 rounded-full text-white/90 hover:text-white text-sm font-medium transition-colors" href="#solutions">Solutions</a>
+          <a className="px-5 py-1.5 rounded-full text-white/90 hover:text-white text-sm font-medium transition-colors" href="#investors">Investors</a>
+          <a className="px-5 py-1.5 rounded-full text-white/90 hover:text-white text-sm font-medium transition-colors" href="#stories">Success Story</a>
+        </nav>
+        
+        {/* Right Action Button */}
+        <div className="flex items-center">
+          <a className="px-6 py-2 rounded-full bg-white text-neutral-900 font-semibold text-sm hover:bg-neutral-100 transition-all shadow-md" href="#contact">
+            Contact Us
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        </div>
+      </header>
+
+      {/* HeroBody */}
+      <main className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 my-auto pt-8 pb-16 flex flex-col justify-center">
+        <div className="max-w-2xl text-left">
+          {/* Main Headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-white leading-[1.08] drop-shadow-md">
+            Smart Farming for<br/>
+            <span className="hero-title-serif font-normal italic font-serif">Future Generations</span>
+          </h1>
+          {/* Subtitle */}
+          <p className="mt-6 text-sm sm:text-base text-white/80 leading-relaxed max-w-lg drop-shadow">
+            Send, receive, and track your finances in one secure platform built for speed, clarity, and everyday financial control.
+          </p>
+          {/* CTA Buttons Group */}
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-agro-lime text-agro-dark font-semibold text-sm hover:bg-agro-limeHover transition-all transform active:scale-95 shadow-md" href="#invest">
+              <span>Start Investing</span>
+              <svg className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" strokeLinecap="round" strokeLinejoin="round"></path>
+              </svg>
+            </a>
+            <a className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/60 hover:border-white bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all transform active:scale-95" href="#farmers">
+              Meet the Farmers
+            </a>
+          </div>
         </div>
       </main>
+
+      {/* HeroFooterStats */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-6 flex items-center justify-between border-b border-white/15">
+        {/* Scroll Indicator */}
+        <a className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/85 hover:text-white font-semibold transition-colors" href="#content">
+          <span>SCROLL</span>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
+          </svg>
+        </a>
+        
+        {/* Rating & Community Avatars */}
+        <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-1 text-sm font-semibold text-white">
+            <svg className="w-4 h-4 fill-amber-400 text-amber-400" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <span>4.9</span>
+          </div>
+          
+          {/* Overlapping Farmer Avatars */}
+          <div className="flex items-center -space-x-2.5">
+            <img alt="Farmer avatar" className="w-7 h-7 rounded-full border border-white/80 object-cover" src="/avatar1.jpg"/>
+            <img alt="Farmer avatar" className="w-7 h-7 rounded-full border border-white/80 object-cover" src="/avatar2.jpg"/>
+            <img alt="Farmer avatar" className="w-7 h-7 rounded-full border border-white/80 object-cover" src="/avatar3.jpg"/>
+          </div>
+          <span className="text-xs font-medium text-white/90">10k+ Farmers</span>
+        </div>
+      </div>
+
+      {/* SponsorPartnersStrip */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 mb-4 mt-2">
+        <div className="bg-white rounded-2xl py-5 px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+          <div className="text-neutral-900 font-semibold text-sm leading-tight text-center md:text-left min-w-[170px]">
+            Trusted by <span className="font-bold">thousand</span><br/>
+            <span className="text-neutral-500 font-normal">companies in the world</span>
+          </div>
+          
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-8 md:gap-11 opacity-80 filter grayscale hover:grayscale-0 transition-all text-neutral-800">
+            {/* CHASE */}
+            <div className="flex items-center gap-1.5 font-bold tracking-widest text-base font-sans">
+              <span>CHASE</span>
+              <div className="w-4 h-4 rounded-sm border-2 border-current flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-current rotate-45"></div>
+              </div>
+            </div>
+            {/* JOHN DEERE */}
+            <div className="flex items-center gap-1.5 font-black tracking-tight text-sm uppercase">
+              <span>JOHN DEERE</span>
+            </div>
+            {/* GREEN */}
+            <div className="flex items-center gap-1 font-bold text-sm tracking-wider uppercase">
+              <svg className="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
+              </svg>
+              <span>GREEN</span>
+            </div>
+            {/* Ohms */}
+            <div className="flex items-center gap-1 font-semibold text-sm tracking-tight">
+              <svg className="w-4 h-4 stroke-current stroke-2 fill-none" viewBox="0 0 24 24">
+                <path d="M12 21a9 9 0 100-18 9 9 0 000 18z" strokeLinecap="round" strokeLinejoin="round"></path>
+                <path d="M9 12a3 3 0 106 0 3 3 0 00-6 0z" strokeLinecap="round" strokeLinejoin="round"></path>
+              </svg>
+              <span>Ohms</span>
+            </div>
+            {/* NROK */}
+            <div className="flex items-center gap-1.5 font-bold tracking-widest text-sm">
+              <div className="flex gap-0.5">
+                <div className="w-1.5 h-3.5 bg-neutral-900 rounded-sm"></div>
+                <div className="w-1.5 h-3.5 bg-neutral-500 rounded-sm"></div>
+              </div>
+              <span>NROK</span>
+            </div>
+            {/* Leap */}
+            <div className="flex items-center gap-1 font-bold text-sm tracking-wide">
+              <span className="text-neutral-400 font-extrabold italic">Z</span>
+              <span>Leap</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
