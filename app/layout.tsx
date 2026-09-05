@@ -15,8 +15,8 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Agrovia - Smart Farming",
-  description: "Smart Farming for Future Generations",
+  title: "CropBazaar - Smart Procurement",
+  description: "Smart Procurement for Future-Ready Farmers",
 };
 
 export default function RootLayout({
@@ -27,9 +27,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${instrumentSerif.variable} h-full w-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+      </head>
+      <body className="min-h-full w-full flex flex-col">{children}</body>
     </html>
   );
 }

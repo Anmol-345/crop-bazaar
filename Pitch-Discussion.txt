@@ -1,0 +1,11 @@
+Kisan ayenge kyu?
+Kisan arhe hai we have to fix the waiting time by giving a digital solution.
+
+Kya hai tumhara app?
+Ek digital solution hai to fi the hassle of going to procurement centers and getting stuck in long waiting lines. Uske jaga aspas ke sare center ki info lo and recommendation pe chalte bano.
+
+Frontend : Next Js
+Backend : Supabase
+Service : Twilio 
+API : Weather
+Database : PostgreSql
